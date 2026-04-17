@@ -124,19 +124,8 @@
        MODAL MEMBROS
     ════════════════════════════════════════════════════════ */
     const membersData = {
-        rafael: {
-            name: 'Prof. Dr. Rafael Roque Aschoff',
-            role: 'Coordenador do Projeto',
-            initials: 'RA',
-            bio: 'Professor e pesquisador do IFPE Campus Recife. Coordena a Liga de Engenharia de Software, promovendo a formação prática e o desenvolvimento de soluções tecnológicas com impacto real na comunidade.',
-            links: {
-                github:   'https://github.com/roque86',
-                email:    'mailto:rafael.aschoff@recife.ifpe.edu.br',
-            }
-        },
 
-          
-        hilson: {
+            hilson: {
             name: 'Prof. Hilson Andrade',
             role: 'Diretor de extenção do IFPE',
             initials: 'HI',
@@ -148,6 +137,18 @@
                
             }
         },
+        
+        rafael: {
+            name: 'Prof. Dr. Rafael Roque Aschoff',
+            role: 'Coordenador do Projeto',
+            initials: 'RA',
+            bio: 'Professor e pesquisador do IFPE Campus Recife. Coordena a Liga de Engenharia de Software, promovendo a formação prática e o desenvolvimento de soluções tecnológicas com impacto real na comunidade.',
+            links: {
+                github:   'https://github.com/roque86',
+                email:    'mailto:rafael.aschoff@recife.ifpe.edu.br',
+            }
+        },
+        
         ilian: {
             name: 'Ilian Solano Bezerra da Silva',
             role: 'Presidente',
