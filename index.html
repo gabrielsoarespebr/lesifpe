@@ -25,10 +25,12 @@
         <nav>
             <ul class="menu">
                 <li><a href="#" class="menu-link">Início</a></li>
-                <li><a href="#equipe" class="menu-link">Nossa Equipe</a></li>
+                <li><a href="#projetos" class="menu-link">Projetos</a></li>
+                <li><a href="#calendario_atividades" class="menu-link">Calendário</a></li>
+                <li><a href="#historia" class="menu-link">História</a></li>
                 <li><a href="#pilares" class="menu-link">Nossos Pilares</a></li>
-                <li><a href="#calendario_atividades" class="menu-link">Calendário de Atividades</a></li>
-                <li><a href="#parte_nossa_equipe" class="menu-link">INGRESSO</a></li>
+                <li><a href="#equipe" class="menu-link">Nossa Equipe</a></li>
+                <li><a href="#parte_nossa_equipe" class="menu-link">Ingresso</a></li>
             </ul>
         </nav>
 
@@ -71,8 +73,184 @@
         </section>
 
 
+
+
+        <!-- ══ PROJETOS — CARROSSEL ════════════════════════════
+             Para adicionar um novo projeto, copie um bloco
+             <div class="project-card project-featured"> ... </div>
+             e cole dentro de #projectsTrack, abaixo dos existentes.
+             O carrossel se adapta automaticamente.
+        ═════════════════════════════════════════════════════ -->
+        <section id="projetos">
+            <h2>Projetos</h2>
+            <p>Soluções tecnológicas com impacto real desenvolvidas pela equipe LES.</p>
+
+            <div class="projects-carousel-wrap">
+                <div class="projects-track" id="projectsTrack">
+
+                    <!-- ── PROJETO 2 ── -->
+                    <div class="project-card project-featured">
+                        <div class="project-img-wrap">
+                            <img src="assets/imagens/capa/ESP32.jpg" alt="Dashboard IoT com ESP32 e Firebase"
+                                class="project-img">
+                            <div class="project-badge">EM ANDAMENTO</div>
+                        </div>
+
+                        <div class="project-body">
+                            <span class="project-tag">IoT + React</span>
+
+                            <h3 class="project-title">
+                                Dashboard em Tempo Real com ESP32, Firebase e React
+                            </h3>
+
+                            <p class="project-desc">
+                                Sistema de monitoramento ambiental desenvolvido em parceria com o mestrado do IFPE.
+                                O ESP32 coleta dados de sensores (chuva e temperatura) e envia em tempo real para o
+                                Firebase Realtime Database.
+                                A aplicação web é construída com React e TypeScript (TSX), consumindo esses dados para
+                                exibição em dashboards dinâmicos,
+                                separados por 4 equipes, permitindo validação e análise dos experimentos.
+                            </p>
+
+                            <div class="project-stack">
+                                <span>ESP32</span>
+                                <span>Firebase</span>
+                                <span>React</span>
+                                <span>TypeScript</span>
+                                <span>TSX</span>
+                            </div>
+
+                            <a href="https://github.com/lesifpe/mestrado-sensor-dashboard/tree/main"
+                                class="project-link" target="_blank">
+                                Ver no GitHub
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- ── PROJETO 1 ── -->
+                    <div class="project-card project-featured">
+                        <div class="project-img-wrap">
+                            <img src="assets/imagens/capa/fachadacampusrecife.jpg" alt="Projeto Principal LES"
+                                class="project-img">
+                            <div class="project-badge">CONCLUÍDO</div>
+                        </div>
+                        <div class="project-body">
+                            <span class="project-tag">Projeto Principal</span>
+                            <h3 class="project-title">Portal LES-IFPE</h3>
+                            <p class="project-desc">
+                                Desenvolvimento do portal oficial da Liga de Engenharia de Software do IFPE Campus
+                                Recife,
+                                integrando divulgação institucional, gestão de membros e vitrine de projetos da liga.
+                            </p>
+                            <div class="project-stack">
+                                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                            </div>
+                            <a href="https://github.com/lesifpe-star-org" class="project-link" target="_blank">
+                                Ver no GitHub
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <!-- ── PLACEHOLDER ── -->
+                    <div class="project-card project-placeholder">
+                        <div class="project-placeholder-inner">
+                            <div class="placeholder-icon">+</div>
+                            <p>Próximo projeto em breve</p>
+                        </div>
+                    </div>
+
+                    <!-- ══ ADICIONE NOVOS PROJETOS AQUI ══
+                    <div class="project-card project-featured">
+                        <div class="project-img-wrap">
+                            <img src="arquivos/imagens/SEU_SCREENSHOT.png" alt="Nome do Projeto" class="project-img">
+                            <div class="project-badge">EM ANDAMENTO</div>
+                        </div>
+                        <div class="project-body">
+                            <span class="project-tag">Categoria</span>
+                            <h3 class="project-title">Nome do Projeto</h3>
+                            <p class="project-desc">Descrição do projeto aqui.</p>
+                            <div class="project-stack">
+                                <span>React</span><span>Node.js</span>
+                            </div>
+                            <a href="#" class="project-link" target="_blank">
+                                Ver no GitHub
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    ══════════════════════════════════════ -->
+
+                </div>
+            </div>
+
+            <!-- Controles do carrossel -->
+            <div class="carousel-controls">
+                <div class="carousel-dots" id="carouselDots"></div>
+                <div class="carousel-arrows">
+                    <button class="carousel-btn" id="prevBtn" aria-label="Anterior">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5M12 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button class="carousel-btn" id="nextBtn" aria-label="Próximo">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+  <!-- ══ CALENDÁRIO ══════════════════════════════════════
+             Para abrir o modal de cada evento, o JS lê os
+             atributos data-* de cada .eventos1 / .eventos2.
+             Basta preencher os atributos para configurar o modal.
+        ═════════════════════════════════════════════════════ -->
+        <section id="calendario_atividades">
+            <h1>Calendário de Atividades</h1>
+
+            <div class="eventos1" data-titulo="Workshop Kickstart TADS: Fundamentos para Ingressantes"
+                data-data="23/04/2026" data-tipo="workshop"
+                data-descricao="Workshop voltado aos calouros do curso de TADS do IFPE Campus Recife. O evento abordará os fundamentos essenciais para ingressantes: introdução às ferramentas de desenvolvimento, boas práticas de código, versionamento com Git e GitHub, além de uma visão geral sobre o mercado de tecnologia em Pernambuco. Conduzido pelos membros da LES, o workshop tem o objetivo de acelerar a curva de aprendizado e integrar os novos alunos ao ecossistema acadêmico e profissional da área.">
+                <img src="assets/imagens/icones/Screenshot 2026-04-15 165131.png" alt="Workshop Kickstart">
+                <p>Workshop Kickstart TADS: Fundamentos para Ingressantes</p>
+                <p>23/04/2026</p>
+            </div>
+
+            <div class="eventos2" data-titulo="Ingresso LES — Processo Seletivo" data-data="23/04/2026"
+                data-tipo="evento"
+                data-descricao="Abertura oficial do processo seletivo para novos membros da Liga de Engenharia de Software do IFPE Campus Recife. O processo é voltado para estudantes dos cursos de tecnologia do IFPE que desejam fazer parte de um ambiente colaborativo de aprendizado prático. Os candidatos passarão por etapas de avaliação técnica e entrevistas com a diretoria da liga. Vagas limitadas. Inscrições pelo formulário disponível no link da bio do Instagram @les.ifpe.">
+                <img src="assets/imagens/logos/Logo com fundo e nome.png" alt="Evento Ingresso">
+                <p>Ingresso LES — Processo Seletivo</p>
+                <p>23/04/2026</p>
+            </div>
+
+            <div class="eventos1" data-titulo="Workshop de Inserção no Mercado de Tecnologia" data-data="10/05/2026"
+                data-tipo="workshop"
+                data-descricao="Workshop prático voltado para estudantes que desejam se preparar para o mercado de tecnologia. O evento cobrirá temas como construção de portfólio no GitHub, elaboração de currículo técnico, como se preparar para entrevistas técnicas (incluindo desafios de código), networking profissional e uso estratégico do LinkedIn. Haverá também um painel com profissionais da área de tecnologia de Recife para um bate-papo sobre trajetórias e oportunidades no setor.">
+                <img src="assets/imagens/icones/incessão.png" alt="Workshop Inserção">
+                <p>Workshop de Inserção no Mercado de Tecnologia</p>
+                <p>10/05/2026</p>
+            </div>
+        </section>
+
         <!-- ══ HISTÓRIA ════════════════════════════════════════ -->
-        <section class="historia">
+        <section id="historia" class="historia">
             <div class="container">
 
                 <div class="historia-texto">
@@ -132,6 +310,62 @@
         </section>
 
 
+
+
+
+
+
+        <!-- ══ PILARES ═════════════════════════════════════════ -->
+        <section id="pilares">
+            <div class="pilares-header">
+                <h2>Nossos Pilares</h2>
+                <p>Os valores que guiam cada projeto e decisão da liga.</p>
+            </div>
+
+            <div class="pilares-grid">
+                <div class="pilar-card" id="TransformaçãoDigital">
+                    <div class="pilar-number">01</div>
+                    <div class="pilar-icon"></div>
+                    <h3>Transformação Digital</h3>
+                    <p>
+                        Aceleramos a adoção de tecnologia na comunidade acadêmica e local, traduzindo
+                        conhecimento técnico em soluções acessíveis que geram mudança real no cotidiano
+                        das pessoas e instituições.
+                    </p>
+                    <div class="pilar-line"></div>
+                </div>
+
+                <div class="pilar-card" id="MetodologiasAgeis">
+                    <div class="pilar-number">02</div>
+                    <div class="pilar-icon"></div>
+                    <h3>Metodologias Ágeis</h3>
+                    <p>
+                        Aplicamos frameworks como Scrum e Kanban no dia a dia dos projetos, desenvolvendo
+                        nos membros a capacidade de entregar valor de forma iterativa, colaborativa e
+                        alinhada às demandas do mercado.
+                    </p>
+                    <div class="pilar-line"></div>
+                </div>
+
+                <div class="pilar-card" id="ImpactoSocial">
+                    <div class="pilar-number">03</div>
+                    <div class="pilar-icon"></div>
+                    <h3>Impacto Social</h3>
+                    <p>
+                        Cada projeto nasce com propósito. Priorizamos soluções que beneficiem diretamente
+                        a comunidade do IFPE e seu entorno, conectando a formação técnica dos membros
+                        com responsabilidade social e cidadania.
+                    </p>
+                    <div class="pilar-line"></div>
+                </div>
+            </div>
+        </section>
+
+
+      
+
+
+
         <!-- ══ EQUIPE ══════════════════════════════════════════ -->
         <section id="equipe">
             <h2>Nossa Equipe</h2>
@@ -142,8 +376,7 @@
                 <h3>Coordenação e Diretoria</h3>
                 <div class="team-grid direction-grid">
 
-                    
-                      <div class="member-card" data-member="hilson">
+                    <div class="member-card" data-member="hilson">
                         <div class="member-avatar">HI</div>
                         <div class="member-info">
                             <span class="team-role">Diretor de extenção do IFPE-Recife</span>
@@ -301,187 +534,7 @@
         </section>
 
 
-        <!-- ══ PROJETOS — CARROSSEL ════════════════════════════
-             Para adicionar um novo projeto, copie um bloco
-             <div class="project-card project-featured"> ... </div>
-             e cole dentro de #projectsTrack, abaixo dos existentes.
-             O carrossel se adapta automaticamente.
-        ═════════════════════════════════════════════════════ -->
-        <section id="projetos">
-            <h2>Projetos</h2>
-            <p>Soluções tecnológicas com impacto real desenvolvidas pela equipe LES.</p>
 
-            <div class="projects-carousel-wrap">
-                <div class="projects-track" id="projectsTrack">
-
-                    <!-- ── PROJETO 1 ── -->
-                    <div class="project-card project-featured">
-                        <div class="project-img-wrap">
-                            <img src="assets/imagens/capa/fachadacampusrecife.jpg" alt="Projeto Principal LES"
-                                class="project-img">
-                            <div class="project-badge">EM ANDAMENTO</div>
-                        </div>
-                        <div class="project-body">
-                            <span class="project-tag">Projeto Principal</span>
-                            <h3 class="project-title">Portal LES-IFPE</h3>
-                            <p class="project-desc">
-                                Desenvolvimento do portal oficial da Liga de Engenharia de Software do IFPE Campus Recife,
-                                integrando divulgação institucional, gestão de membros e vitrine de projetos da liga.
-                            </p>
-                            <div class="project-stack">
-                                <span>HTML</span><span>CSS</span><span>JavaScript</span>
-                            </div>
-                            <a href="https://github.com/lesifpe-star-org" class="project-link" target="_blank">
-                                Ver no GitHub
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- ── PLACEHOLDER ── -->
-                    <div class="project-card project-placeholder">
-                        <div class="project-placeholder-inner">
-                            <div class="placeholder-icon">+</div>
-                            <p>Próximo projeto em breve</p>
-                        </div>
-                    </div>
-
-                    <!-- ══ ADICIONE NOVOS PROJETOS AQUI ══
-                    <div class="project-card project-featured">
-                        <div class="project-img-wrap">
-                            <img src="arquivos/imagens/SEU_SCREENSHOT.png" alt="Nome do Projeto" class="project-img">
-                            <div class="project-badge">EM ANDAMENTO</div>
-                        </div>
-                        <div class="project-body">
-                            <span class="project-tag">Categoria</span>
-                            <h3 class="project-title">Nome do Projeto</h3>
-                            <p class="project-desc">Descrição do projeto aqui.</p>
-                            <div class="project-stack">
-                                <span>React</span><span>Node.js</span>
-                            </div>
-                            <a href="#" class="project-link" target="_blank">
-                                Ver no GitHub
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    ══════════════════════════════════════ -->
-
-                </div>
-            </div>
-
-            <!-- Controles do carrossel -->
-            <div class="carousel-controls">
-                <div class="carousel-dots" id="carouselDots"></div>
-                <div class="carousel-arrows">
-                    <button class="carousel-btn" id="prevBtn" aria-label="Anterior">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M19 12H5M12 19l-7-7 7-7"/>
-                        </svg>
-                    </button>
-                    <button class="carousel-btn" id="nextBtn" aria-label="Próximo">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ══ PILARES ═════════════════════════════════════════ -->
-        <section id="pilares">
-            <div class="pilares-header">
-                <h2>Nossos Pilares</h2>
-                <p>Os valores que guiam cada projeto e decisão da liga.</p>
-            </div>
-
-            <div class="pilares-grid">
-                <div class="pilar-card" id="TransformaçãoDigital">
-                    <div class="pilar-number">01</div>
-                    <div class="pilar-icon"></div>
-                    <h3>Transformação Digital</h3>
-                    <p>
-                        Aceleramos a adoção de tecnologia na comunidade acadêmica e local, traduzindo
-                        conhecimento técnico em soluções acessíveis que geram mudança real no cotidiano
-                        das pessoas e instituições.
-                    </p>
-                    <div class="pilar-line"></div>
-                </div>
-
-                <div class="pilar-card" id="MetodologiasAgeis">
-                    <div class="pilar-number">02</div>
-                    <div class="pilar-icon"></div>
-                    <h3>Metodologias Ágeis</h3>
-                    <p>
-                        Aplicamos frameworks como Scrum e Kanban no dia a dia dos projetos, desenvolvendo
-                        nos membros a capacidade de entregar valor de forma iterativa, colaborativa e
-                        alinhada às demandas do mercado.
-                    </p>
-                    <div class="pilar-line"></div>
-                </div>
-
-                <div class="pilar-card" id="ImpactoSocial">
-                    <div class="pilar-number">03</div>
-                    <div class="pilar-icon"></div>
-                    <h3>Impacto Social</h3>
-                    <p>
-                        Cada projeto nasce com propósito. Priorizamos soluções que beneficiem diretamente
-                        a comunidade do IFPE e seu entorno, conectando a formação técnica dos membros
-                        com responsabilidade social e cidadania.
-                    </p>
-                    <div class="pilar-line"></div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ══ CALENDÁRIO ══════════════════════════════════════
-             Para abrir o modal de cada evento, o JS lê os
-             atributos data-* de cada .eventos1 / .eventos2.
-             Basta preencher os atributos para configurar o modal.
-        ═════════════════════════════════════════════════════ -->
-        <section id="calendario_atividades">
-            <h1>Calendário de Atividades</h1>
-
-            <div class="eventos1"
-                data-titulo="Workshop Kickstart TADS: Fundamentos para Ingressantes"
-                data-data="23/04/2026"
-                data-tipo="workshop"
-                data-descricao="Workshop voltado aos calouros do curso de TADS do IFPE Campus Recife. O evento abordará os fundamentos essenciais para ingressantes: introdução às ferramentas de desenvolvimento, boas práticas de código, versionamento com Git e GitHub, além de uma visão geral sobre o mercado de tecnologia em Pernambuco. Conduzido pelos membros da LES, o workshop tem o objetivo de acelerar a curva de aprendizado e integrar os novos alunos ao ecossistema acadêmico e profissional da área.">
-                <img src="assets/imagens/icones/Screenshot 2026-04-15 165131.png" alt="Workshop Kickstart">
-                <p>Workshop Kickstart TADS: Fundamentos para Ingressantes</p>
-                <p>23/04/2026</p>
-            </div>
-
-            <div class="eventos2"
-                data-titulo="Ingresso LES — Processo Seletivo"
-                data-data="23/04/2026"
-                data-tipo="evento"
-                data-descricao="Abertura oficial do processo seletivo para novos membros da Liga de Engenharia de Software do IFPE Campus Recife. O processo é voltado para estudantes dos cursos de tecnologia do IFPE que desejam fazer parte de um ambiente colaborativo de aprendizado prático. Os candidatos passarão por etapas de avaliação técnica e entrevistas com a diretoria da liga. Vagas limitadas. Inscrições pelo formulário disponível no link da bio do Instagram @les.ifpe.">
-                <img src="assets/imagens/logos/Logo com fundo e nome.png" alt="Evento Ingresso">
-                <p>Ingresso LES — Processo Seletivo</p>
-                <p>23/04/2026</p>
-            </div>
-
-            <div class="eventos1"
-                data-titulo="Workshop de Inserção no Mercado de Tecnologia"
-                data-data="10/05/2026"
-                data-tipo="workshop"
-                data-descricao="Workshop prático voltado para estudantes que desejam se preparar para o mercado de tecnologia. O evento cobrirá temas como construção de portfólio no GitHub, elaboração de currículo técnico, como se preparar para entrevistas técnicas (incluindo desafios de código), networking profissional e uso estratégico do LinkedIn. Haverá também um painel com profissionais da área de tecnologia de Recife para um bate-papo sobre trajetórias e oportunidades no setor.">
-                <img src="assets/imagens/icones/incessão.png" alt="Workshop Inserção">
-                <p>Workshop de Inserção no Mercado de Tecnologia</p>
-                <p>10/05/2026</p>
-            </div>
-        </section>
 
 
         <!-- ══ INGRESSO ════════════════════════════════════════ -->

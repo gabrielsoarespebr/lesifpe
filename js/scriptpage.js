@@ -25,11 +25,11 @@
        Adicione mais imagens ao array heroImages para
        incluir novos slides no hero.
     ════════════════════════════════════════════════════════ */
-    const heroImages = [
-        { src: 'assets/imagens/capa/fachadacampusrecife.jpg', alt: 'IFPE Campus Recife — Fachada' },
-        { src: 'assets/imagens/capa/CAPA.jpg', alt: 'Workshop LES' },
-         { src: 'assets/imagens/capa/CAPA1.jpg', alt: 'Workshop LES' },
-    ];
+   const heroImages = [
+    { src: '/assets/imagens/capa/fachadacampusrecife.jpg', alt: 'IFPE Campus Recife — Fachada' },
+    { src: '/assets/imagens/capa/CAPA.jpeg', alt: 'Workshop LES' },
+    { src: '/assets/imagens/capa/1.jpeg', alt: 'Workshop LES' },
+];
 
     const slideshowEl  = document.getElementById('heroSlideshow');
     const slideDotsEl  = document.getElementById('slideDots');
@@ -64,60 +64,125 @@
     slideTimer = setInterval(() => goToSlide(currentSlide + 1), 5000);
 
 
-    /* ════════════════════════════════════════════════════════
-       PROJETOS — CARROSSEL
-    ════════════════════════════════════════════════════════ */
-    const track     = document.getElementById('projectsTrack');
-    const dotsWrap  = document.getElementById('carouselDots');
-    const prevBtn   = document.getElementById('prevBtn');
-    const nextBtn   = document.getElementById('nextBtn');
+   /* ========================================================
+   CARROSSEL DE PROJETOS - DRAG + TOUCH (corrigido)
+   Permite scroll vertical da página normalmente
+   ======================================================== */
 
-    function buildCarousel() {
-        const cards = track.querySelectorAll('.project-card');
-        const total = cards.length;
-        if (total <= 1) return;
+const track = document.getElementById('projectsTrack');
+const dotsWrap = document.getElementById('carouselDots');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 
-        let current = 0;
-        let cardW   = 0;
+let currentIndex = 0;
+let isDragging = false;
+let startX = 0;
+let currentX = 0;
+let initialScrollY = 0;
+let cardWidth = 0;
 
-        function getCardWidth() {
-            return cards[0].getBoundingClientRect().width + 24; // gap = 1.5rem = 24px
-        }
+function getCardWidth() {
+    const card = track.querySelector('.project-card');
+    return card ? card.getBoundingClientRect().width + 24 : 320; // gap 1.5rem
+}
 
-        dotsWrap.innerHTML = '';
-        cards.forEach((_, i) => {
-            const d = document.createElement('button');
-            d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-            d.setAttribute('aria-label', `Projeto ${i + 1}`);
-            d.addEventListener('click', () => goTo(i));
-            dotsWrap.appendChild(d);
-        });
+function updateCarousel(smooth = true) {
+    cardWidth = getCardWidth();
+    const translateX = -currentIndex * cardWidth;
+    
+    track.style.transition = smooth ? 'transform 0.45s cubic-bezier(0.32, 0.72, 0, 1)' : 'none';
+    track.style.transform = `translateX(${translateX}px)`;
+    
+    updateDotsAndButtons();
+}
 
-        function updateDots() {
-            dotsWrap.querySelectorAll('.carousel-dot').forEach((d, i) => {
-                d.classList.toggle('active', i === current);
-            });
-            prevBtn.disabled = current === 0;
-            nextBtn.disabled = current === total - 1;
-        }
+function updateDotsAndButtons() {
+    const dots = dotsWrap.querySelectorAll('.carousel-dot');
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+    
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex >= track.children.length - 1;
+}
 
-        function goTo(index) {
-            cardW = getCardWidth();
-            current = Math.max(0, Math.min(index, total - 1));
-            track.style.transform = `translateX(-${current * cardW}px)`;
-            updateDots();
-        }
+// ====================== TOUCH / DRAG ======================
+function onTouchStart(e) {
+    if (e.touches.length > 1) return; // evita multi-touch
+    
+    isDragging = true;
+    startX = e.touches[0].clientX;
+    currentX = startX;
+    initialScrollY = window.scrollY;
+    
+    track.style.transition = 'none';
+}
 
-        prevBtn.addEventListener('click', () => goTo(current - 1));
-        nextBtn.addEventListener('click', () => goTo(current + 1));
+function onTouchMove(e) {
+    if (!isDragging) return;
+    
+    currentX = e.touches[0].clientX;
+    const diffX = currentX - startX;
+    
+    // Se o movimento for mais vertical que horizontal → deixa o scroll da página funcionar
+    const diffY = Math.abs(window.scrollY - initialScrollY);
+    
+    if (diffY > 15) {           // usuário está tentando rolar a página
+        isDragging = false;
+        return;
+    }
+    
+    // Move o carrossel horizontalmente
+    const translateX = -currentIndex * cardWidth + diffX;
+    track.style.transform = `translateX(${translateX}px)`;
+}
 
-        // Recalculate on resize
-        window.addEventListener('resize', () => goTo(current));
+function onTouchEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+    
+    const movedBy = currentX - startX;
+    const threshold = cardWidth * 0.25; // 25% da largura do card
 
-        updateDots();
+    track.style.transition = 'transform 0.45s cubic-bezier(0.32, 0.72, 0, 1)';
+
+    if (movedBy < -threshold && currentIndex < track.children.length - 1) {
+        currentIndex++;
+    } else if (movedBy > threshold && currentIndex > 0) {
+        currentIndex--;
     }
 
-    buildCarousel();
+    updateCarousel();
+}
+
+// ====================== EVENTOS ======================
+track.addEventListener('touchstart', onTouchStart, { passive: true });
+track.addEventListener('touchmove', onTouchMove, { passive: false });
+track.addEventListener('touchend', onTouchEnd);
+
+// Botões
+prevBtn.addEventListener('click', () => { currentIndex--; updateCarousel(); });
+nextBtn.addEventListener('click', () => { currentIndex++; updateCarousel(); });
+
+// Clique nos dots
+function createDots() {
+    dotsWrap.innerHTML = '';
+    const total = track.children.length;
+    for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.className = `carousel-dot ${i === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => {
+            currentIndex = i;
+            updateCarousel();
+        });
+        dotsWrap.appendChild(dot);
+    }
+}
+
+// Recalcular ao redimensionar
+window.addEventListener('resize', () => updateCarousel());
+
+// Inicializar
+createDots();
+updateCarousel();
 
 
     /* ════════════════════════════════════════════════════════
