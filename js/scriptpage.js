@@ -171,9 +171,11 @@ updateCarousel();
      3. Atualize o contador em equipe-member-count se necessário
 
    GRUPOS:
-     "diretoria"   → Coordenação e Diretoria
-     "dev"         → Membros Desenvolvedores
-     "colaborador" → Colaboradores
+     "diretoria"    → Coordenação e Diretoria
+     "dev"          → Membros Desenvolvedores
+     "colaborador"  → Colaboradores
+     "externo"      → Colaboradores Externos
+     "ex_integrante"→ Ex Integrantes
 
    PARA NOVA CATEGORIA:
      1. Adicione a entrada em GROUP_LABELS (§6)
@@ -186,9 +188,9 @@ const membersData = {
     /* ── Coordenação ── */
     hilson: {
         name:     'Prof. Hilson Andrade',
-        role:     'Diretor de extenção do IFPE-Recife',
+        role:     'Colaborador — Diretor de Extensão IFPE-Recife',
         initials: 'HI',
-        group:    'diretoria',
+        group:    'colaborador',
         bio:      'Professor e pesquisador do IFPE Campus Recife que, há mais de vinte anos, utiliza a ciência e a tecnologia para resolver problemas. Doutorando em Engenharia da Computação, Mestre em Ciências da Computação, Engenheiro Eletrônico e técnico em Eletrotécnica, coordena a Liga de Engenharia de Software, promovendo a formação prática e o desenvolvimento de soluções tecnológicas com impacto real na comunidade.',
         links: {
             linkedin: 'https://www.linkedin.com/in/hilson-andrade-36719344/',
@@ -290,6 +292,26 @@ const membersData = {
        },
     ══════════════════════════════════════════════════════ */
 
+    /* ══ COLABORADORES EXTERNOS — adicione aqui ═════════════
+       Exemplo:
+       nomeProfessor: {
+           name: 'Nome Completo', role: 'Colaborador Externo',
+           initials: 'NP', group: 'externo',
+           bio: 'Descrição da contribuição.',
+           links: { linkedin: 'https://...' }
+       },
+    ══════════════════════════════════════════════════════ */
+
+    /* ══ EX INTEGRANTES — adicione aqui ══════════════════════
+       Exemplo:
+       nomeEx: {
+           name: 'Nome Completo', role: 'Ex Integrante',
+           initials: 'NE', group: 'ex_integrante',
+           bio: 'Contribuições durante o período na liga.',
+           links: { linkedin: 'https://...' }
+       },
+    ══════════════════════════════════════════════════════ */
+
 };
 
 /* Ícones e rótulos dos links */
@@ -360,15 +382,32 @@ memberModal.addEventListener('click', e => { if (e.target === memberModal) close
      1. Adicione a entrada em GROUP_LABELS
      2. Adicione os dados em membersData (§4)
      3. Adicione cards em .equipe-data-source no HTML
+
+   ORDEM DOS GRUPOS no modal — definida por GROUP_ORDER:
+     Altere GROUP_ORDER para mudar a sequência de exibição.
 ════════════════════════════════════════════════════════════ */
 const GROUP_LABELS = {
-    'diretoria':   'Coordenação e Diretoria',
-    'dev':         'Membros Desenvolvedores',
-    'colaborador': 'Colaboradores',
+    'diretoria':    'Coordenação e Diretoria',
+    'dev':          'Membros Desenvolvedores',
+    'colaborador':  'Colaboradores',
+    'externo':      'Colaboradores Externos',
+    'ex_integrante':'Ex Integrantes',
     /* Nova categoria:
        'pesquisa': 'Pesquisadores',
        'alumni':   'Alumni',
     */
+};
+
+/* Ordem de exibição dos grupos no modal (todos os grupos, com ou sem membros) */
+const GROUP_ORDER = ['diretoria', 'dev', 'colaborador', 'externo', 'ex_integrante'];
+
+/* Cores de destaque por grupo (para o header separador) */
+const GROUP_COLORS = {
+    'diretoria':    'var(--green)',
+    'dev':          'var(--green)',
+    'colaborador':  'var(--gray-lt)',
+    'externo':      '#c09030',
+    'ex_integrante':'var(--red)',
 };
 
 const teamOverviewModal   = document.getElementById('team-overview-modal');
@@ -389,20 +428,26 @@ function collectMembersByGroup() {
     return groups;
 }
 
-/* Renderiza filtros */
+/* Renderiza filtros — exibe TODOS os grupos de GROUP_ORDER,
+   mesmo os que ainda não têm membros (mostra contador = 0) */
 function renderTeamOverviewFilters(groups, activeFilter) {
     teamOverviewFilters.innerHTML = '';
 
+    /* Botão "Todos" */
     const allBtn = document.createElement('button');
     allBtn.className = `team-filter-btn ${activeFilter === 'all' ? 'active' : ''}`;
     allBtn.textContent = 'Todos';
     allBtn.addEventListener('click', () => renderTeamOverviewGrid(groups, 'all'));
     teamOverviewFilters.appendChild(allBtn);
 
-    Object.keys(groups).forEach(group => {
+    /* Um botão por grupo na ordem definida em GROUP_ORDER */
+    GROUP_ORDER.forEach(group => {
+        const label = GROUP_LABELS[group] || group;
+        const count = (groups[group] || []).length;
+
         const btn = document.createElement('button');
-        btn.className = `team-filter-btn ${activeFilter === group ? 'active' : ''}`;
-        btn.textContent = GROUP_LABELS[group] || group;
+        btn.className = `team-filter-btn ${activeFilter === group ? 'active' : ''} ${count === 0 ? 'empty' : ''}`;
+        btn.innerHTML = `${label} <span class="filter-count">${count}</span>`;
         btn.addEventListener('click', () => renderTeamOverviewGrid(groups, group));
         teamOverviewFilters.appendChild(btn);
     });
@@ -414,22 +459,34 @@ function renderTeamOverviewGrid(groups, activeFilter = 'all') {
     renderTeamOverviewFilters(groups, activeFilter);
 
     const groupsToRender = activeFilter === 'all'
-        ? Object.keys(groups)
+        ? GROUP_ORDER
         : [activeFilter];
 
-    let globalIndex = 0; /* índice global para stagger sequencial */
+    let globalIndex = 0;
 
     groupsToRender.forEach(group => {
-        const members = groups[group];
-        if (!members || members.length === 0) return;
+        const members = groups[group] || [];
 
-        /* Header do grupo (só quando mostra todos) */
+        /* Header do grupo (sempre visível no modo "Todos") */
         if (activeFilter === 'all') {
             const header = document.createElement('div');
             header.className = 'team-overview-group-header animated';
             header.style.setProperty('--i', globalIndex++);
+            header.style.setProperty('--group-color', GROUP_COLORS[group] || 'var(--green)');
             header.textContent = GROUP_LABELS[group] || group;
             teamOverviewGrid.appendChild(header);
+        }
+
+        if (members.length === 0) {
+            /* Grupo vazio — exibe placeholder */
+            const empty = document.createElement('div');
+            empty.className = 'team-overview-empty animated';
+            empty.style.setProperty('--i', globalIndex++);
+            empty.innerHTML = `
+                <span class="team-overview-empty-icon">—</span>
+                <span>Nenhum membro neste grupo ainda.</span>`;
+            teamOverviewGrid.appendChild(empty);
+            return;
         }
 
         members.forEach(memberId => {
@@ -437,17 +494,22 @@ function renderTeamOverviewGrid(groups, activeFilter = 'all') {
             if (!data) return;
 
             /* Classes de avatar e role por grupo */
-            const avatarClass = group === 'dev'
-                ? 'member-avatar dev-avatar'
-                : group === 'colaborador'
-                    ? 'member-avatar colaborador-avatar'
-                    : 'member-avatar';
+            let avatarClass = 'member-avatar';
+            let roleClass   = 'team-role';
 
-            const roleClass = group === 'dev'
-                ? 'team-role dev-role'
-                : group === 'colaborador'
-                    ? 'team-role colaborador-role'
-                    : 'team-role';
+            if (group === 'dev') {
+                avatarClass = 'member-avatar dev-avatar';
+                roleClass   = 'team-role dev-role';
+            } else if (group === 'colaborador') {
+                avatarClass = 'member-avatar colaborador-avatar';
+                roleClass   = 'team-role colaborador-role';
+            } else if (group === 'externo') {
+                avatarClass = 'member-avatar externo-avatar';
+                roleClass   = 'team-role externo-role';
+            } else if (group === 'ex_integrante') {
+                avatarClass = 'member-avatar ex-avatar';
+                roleClass   = 'team-role ex-role';
+            }
 
             const card = document.createElement('div');
             card.className = 'member-card animated';
@@ -688,7 +750,7 @@ function updateIngressoCountdown() {
         ingressoFaseAtual = 3;
         $countdownBlock.style.display    = 'flex';
         $semestralBlock.style.display    = 'none';
-        $ctaBtn.style.display            = ''; /* visível mas bloqueado */
+        $ctaBtn.style.display            = '';
         $countdownBlock.dataset.fase     = '3';
         $countdownLabel.textContent      = cfg.textoFase3;
 
@@ -706,7 +768,7 @@ function updateIngressoCountdown() {
         ingressoFaseAtual = 2;
         $countdownBlock.style.display = 'flex';
         $semestralBlock.style.display = 'none';
-        $ctaBtn.style.display         = ''; /* funciona normalmente */
+        $ctaBtn.style.display         = '';
         $countdownBlock.dataset.fase  = '2';
         $countdownLabel.textContent   = cfg.textoFase2;
 
@@ -725,7 +787,7 @@ function updateIngressoCountdown() {
     ingressoFaseAtual = 1;
     $countdownBlock.style.display = 'flex';
     $semestralBlock.style.display = 'none';
-    $ctaBtn.style.display         = ''; /* visível mas bloqueado */
+    $ctaBtn.style.display         = '';
     $countdownBlock.dataset.fase  = '1';
     $countdownLabel.textContent   = cfg.textoFase1;
 
@@ -768,7 +830,7 @@ $ctaBtn.addEventListener('click', function(e) {
 ════════════════════════════════════════════════════════════ */
 document.addEventListener('keydown', e => {
     if (e.key !== 'Escape') return;
-    if (memberModal.classList.contains('open'))           closeMemberModal();
-    else if (eventModal.classList.contains('open'))       closeEventModal();
+    if (memberModal.classList.contains('open'))            closeMemberModal();
+    else if (eventModal.classList.contains('open'))        closeEventModal();
     else if (teamOverviewModal.classList.contains('open')) closeTeamOverviewModal();
 });

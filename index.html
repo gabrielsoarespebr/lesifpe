@@ -476,14 +476,18 @@
                "colaborador"  → Colaboradores
                (adicione novos grupos em GROUP_LABELS no scriptpage.js)
         ══════════════════════════════════════════════════════ -->
+<!-- ══ TRECHO PARA SUBSTITUIR NO index.html ══════════════════
+     Substitua o bloco inteiro da <section id="equipe"> pelo
+     conteúdo abaixo. As únicas mudanças são:
+       1. Pílulas de categoria: adicionadas "Colab. Externo" e "Ex Integrantes"
+       2. Bloco .equipe-data-source: hilson movido para data-group="externo"
+          e adicionado bloco de ex_integrante comentado
+════════════════════════════════════════════════════════════ -->
+
         <section id="equipe">
             <h2>Nossa Equipe</h2>
             <p>Conheça as pessoas que impulsionam a tecnologia e a inovação na LES.</p>
 
-            <!-- ── Área central do botão ──
-                 Toda a lógica de abertura do modal está em scriptpage.js
-                 A contagem de membros é preenchida via JS automaticamente
-            -->
             <div class="equipe-hero">
 
                 <!-- Avatares flutuantes decorativos — animados via CSS -->
@@ -502,7 +506,6 @@
                 <div class="equipe-hero-inner">
                     <p class="equipe-hero-label">Liga de Engenharia de Software</p>
                     <div class="equipe-hero-count">
-                        <!-- Preenchido via JS com o total de membros -->
                         <span id="equipe-member-count">11</span>
                         <span class="equipe-hero-count-label">pessoas constroem a LES</span>
                     </div>
@@ -522,34 +525,25 @@
                         <span class="equipe-tag equipe-tag--green">Coordenação</span>
                         <span class="equipe-tag equipe-tag--red">Desenvolvedores</span>
                         <span class="equipe-tag equipe-tag--amber">Colaboradores</span>
-                        <!-- Para adicionar uma nova categoria aqui:
-                             <span class="equipe-tag equipe-tag--white">Nova Categoria</span>
-                        -->
+                        <span class="equipe-tag equipe-tag--gold">Colab. Externo</span>
+                        <span class="equipe-tag equipe-tag--muted">Ex Integrantes</span>
+                        
                     </div>
                 </div>
 
             </div>
 
             <!-- ══ DADOS DOS MEMBROS (hidden — lidos pelo JS para o modal) ══
-                 Estes cards são invisíveis na página mas alimentam o modal.
-                 Para adicionar/remover membros, edite aqui E em membersData
-                 no scriptpage.js.
-
                  GRUPOS:
-                   data-group="diretoria"   → Coordenação e Diretoria
-                   data-group="dev"         → Membros Desenvolvedores
-                   data-group="colaborador" → Colaboradores
-
-                 PARA NOVA CATEGORIA:
-                   1. Adicione o data-group desejado aqui
-                   2. Adicione a entrada em GROUP_LABELS (scriptpage.js)
-                   3. Adicione os dados em membersData (scriptpage.js)
-                   4. Adicione a pílula .equipe-tag acima (opcional)
+                   data-group="diretoria"    → Coordenação e Diretoria
+                   data-group="dev"          → Membros Desenvolvedores
+                   data-group="colaborador"  → Colaboradores
+                   data-group="externo"      → Colaboradores Externos
+                   data-group="ex_integrante"→ Ex Integrantes
             ══ -->
             <div class="equipe-data-source" aria-hidden="true" style="display:none">
 
                 <!-- Coordenação e Diretoria -->
-                <div class="member-card" data-member="hilson"    data-group="diretoria"></div>
                 <div class="member-card" data-member="rafael"    data-group="diretoria"></div>
                 <div class="member-card" data-member="ilian"     data-group="diretoria"></div>
                 <div class="member-card" data-member="yuri"      data-group="diretoria"></div>
@@ -569,9 +563,14 @@
                 <div class="member-card" data-member="ID_COLABORADOR" data-group="colaborador"></div>
                 -->
 
-                <!-- Nova Categoria (reservado)
-                <div class="member-card" data-member="ID_MEMBRO" data-group="nova-categoria"></div>
+                <!-- Colaboradores Externos -->
+                <div class="member-card" data-member="hilson"    data-group="colaborador"></div>
+
+                <!-- Ex Integrantes
+                     Para ativar: descomente e adicione os dados em membersData
+                <div class="member-card" data-member="ID_EX_INTEGRANTE" data-group="ex_integrante"></div>
                 -->
+
             </div>
 
         </section>

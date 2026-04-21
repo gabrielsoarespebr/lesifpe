@@ -674,3 +674,151 @@
     .team-overview-modal-box { padding: 1.25rem 1rem; }
     .countdown-num { font-size: 1.6rem; }
 }
+
+/* ============================================================
+   LES — additions-groups.css
+   Cole este bloco ao final do seu Adicions.css existente.
+
+   CONTEÚDO:
+     1. Pílulas novas: .equipe-tag--gold e .equipe-tag--muted
+     2. Avatar e role: Colaborador Externo (externo)
+     3. Avatar e role: Ex Integrante (ex_integrante)
+     4. Hover nos cards dos novos grupos
+     5. Contador nos botões de filtro (.filter-count)
+     6. Botão de filtro vazio (.team-filter-btn.empty)
+     7. Header de grupo com cor dinâmica
+     8. Placeholder de grupo vazio (.team-overview-empty)
+   ============================================================ */
+
+
+/* ── 1. PÍLULAS ───────────────────────────────────────────── */
+.equipe-tag--gold {
+    color: #c09030;
+    background: rgba(192, 120, 0, 0.1);
+    border: 1px solid rgba(192, 120, 0, 0.25);
+}
+
+.equipe-tag--muted {
+    color: rgba(245, 245, 240, 0.45);
+    background: rgba(245, 245, 240, 0.04);
+    border: 1px solid rgba(245, 245, 240, 0.1);
+}
+
+
+/* ── 2. COLABORADOR EXTERNO ───────────────────────────────── */
+.externo-avatar {
+    background: linear-gradient(135deg, #5a3a00, #a06010);
+    color: var(--white);
+    border-color: rgba(192, 120, 0, 0.3);
+}
+
+.externo-role {
+    color: #c09030;
+}
+
+.member-card[data-group="externo"]:hover {
+    background: rgba(192, 120, 0, 0.07);
+    border-color: rgba(192, 120, 0, 0.3);
+}
+
+.member-card[data-group="externo"]:hover::before {
+    background: #c07800;
+}
+
+
+/* ── 3. EX INTEGRANTE ─────────────────────────────────────── */
+.ex-avatar {
+    background: linear-gradient(135deg, #2a0a0a, #5a1a1a);
+    color: rgba(245, 245, 240, 0.6);
+    border-color: rgba(204, 0, 0, 0.2);
+}
+
+.ex-role {
+    color: rgba(204, 0, 0, 0.75);
+}
+
+.member-card[data-group="ex_integrante"] {
+    opacity: 0.75;
+}
+
+.member-card[data-group="ex_integrante"]:hover {
+    opacity: 1;
+    background: rgba(204, 0, 0, 0.05);
+    border-color: rgba(204, 0, 0, 0.25);
+}
+
+.member-card[data-group="ex_integrante"]:hover::before {
+    background: var(--red);
+}
+
+
+/* ── 4. CONTADOR NOS BOTÕES DE FILTRO ─────────────────────── */
+.filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 16px;
+    padding: 0 4px;
+    margin-left: 0.4rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--gray-lt);
+    vertical-align: middle;
+    line-height: 1;
+    transition: background 0.2s, color 0.2s;
+}
+
+.team-filter-btn.active .filter-count {
+    background: rgba(0, 166, 81, 0.2);
+    color: var(--green);
+}
+
+
+/* ── 5. BOTÃO DE FILTRO VAZIO ─────────────────────────────── */
+.team-filter-btn.empty {
+    opacity: 0.5;
+}
+
+.team-filter-btn.empty:hover {
+    opacity: 0.8;
+}
+
+
+/* ── 6. HEADER DE GRUPO COM COR DINÂMICA ─────────────────── */
+/* O JS define --group-color via style="--group-color: ..." */
+.team-overview-group-header {
+    color: var(--group-color, var(--green));
+    border-bottom-color: color-mix(in srgb, var(--group-color, var(--green)) 20%, transparent);
+}
+
+
+/* ── 7. PLACEHOLDER DE GRUPO VAZIO ───────────────────────── */
+.team-overview-empty {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    border: 1px dashed rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.015);
+    animation: cardSlideIn 0.4s var(--ease-smooth) both;
+    animation-delay: calc(var(--i, 0) * 0.045s);
+}
+
+.team-overview-empty-icon {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.15);
+    font-family: var(--font-display);
+}
+
+.team-overview-empty span:last-child {
+    font-family: var(--font-head);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.2);
+}
