@@ -173,10 +173,48 @@
                         </svg>
                     </a>
                 </div>
-                <span class="cta-sub">Seleção aberta · IFPE Campus Recife</span>
+                <span class="cta-sub" id="ingresso-status-sub">Seleção aberta · IFPE Campus Recife</span>
             </div>
         </section>
 
+        <!-- Modal das Etapas do Processo Seletivo -->
+        <div id="etapasModal" class="etapas-modal">
+            <div class="etapas-modal-content">
+                <div class="etapas-modal-header">
+                    <h2>Processo<br>Seletivo</h2>
+                    <button class="etapas-modal-close" id="closeModalBtn">×</button>
+                </div>
+                <div class="etapas-modal-body" id="etapasModalBody">
+                    <div class="etapa-card">
+                        <div class="etapa-titulo">
+                            <span class="etapa-numero">1</span>
+                            1ª Etapa — Teste de Nivelamento
+                        </div>
+                        <div class="etapa-descricao">
+                            Avaliação não eliminatória, com o objetivo de identificar seu nível atual de conhecimento em programação.
+                        </div>
+                        <div class="etapa-detalhe">
+                            💡 Não é necessário saber tudo — queremos apenas compreender seu ponto de partida.
+                        </div>
+                    </div>
+
+                    <div class="etapa-card">
+                        <div class="etapa-titulo">
+                            <span class="etapa-numero">2</span>
+                            2ª Etapa — Entrevista
+                        </div>
+                        <div class="etapa-descricao">
+                            Conversa individual para conhecer melhor você, suas motivações e seu perfil. O objetivo é avaliar sua afinidade com a área de Engenharia de Software e com a Liga.
+                        </div>
+                    </div>
+                </div>
+                <div class="etapas-modal-footer" id="etapasModalFooter">
+                    <button class="etapas-modal-btn" id="closeModalFooterBtn">
+                        Entendi, fechar
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <!-- ══ PROJETOS — CARROSSEL ════════════════════════════
              Para adicionar um novo projeto, copie um bloco

@@ -656,6 +656,7 @@ const $cdDays         = document.getElementById('cd-days');
 const $cdHours        = document.getElementById('cd-hours');
 const $cdMins         = document.getElementById('cd-mins');
 const $cdSecs         = document.getElementById('cd-secs');
+const $statusSub      = document.getElementById('ingresso-status-sub');
 
 /* ── Cria o toast e injeta no body ── */
 const toast = document.createElement('div');
@@ -738,6 +739,9 @@ function updateIngressoCountdown() {
             $semestralBlock.style.display = 'flex';
             $ctaBtn.style.display         = 'none';
             clearInterval(ingressoTimer);
+
+            // NOVO: atualiza texto do subtítulo
+            if ($statusSub) $statusSub.textContent = 'Processo seletivo semestral · IFPE Campus Recife';
         }
         return;
     }
@@ -753,6 +757,9 @@ function updateIngressoCountdown() {
         $ctaBtn.style.display            = '';
         $countdownBlock.dataset.fase     = '3';
         $countdownLabel.textContent      = cfg.textoFase3;
+
+        // NOVO: atualiza texto do subtítulo
+        if ($statusSub) $statusSub.textContent = 'Inscrições encerradas · IFPE Campus Recife';
 
         const d = calcDiff(cfg.dataProximaTurma);
         $cdDays.textContent  = pad(d.days);
@@ -771,6 +778,9 @@ function updateIngressoCountdown() {
         $ctaBtn.style.display         = '';
         $countdownBlock.dataset.fase  = '2';
         $countdownLabel.textContent   = cfg.textoFase2;
+
+        // NOVO: atualiza texto do subtítulo
+        if ($statusSub) $statusSub.textContent = 'Seleção aberta · IFPE Campus Recife';
 
         const target = new Date(cfg.dataEncerramentoInscricoes);
         target.setHours(23, 59, 59, 999);
@@ -791,6 +801,9 @@ function updateIngressoCountdown() {
     $countdownBlock.dataset.fase  = '1';
     $countdownLabel.textContent   = cfg.textoFase1;
 
+    // NOVO: atualiza texto do subtítulo
+    if ($statusSub) $statusSub.textContent = 'Em breve · IFPE Campus Recife';
+
     const d = calcDiff(cfg.dataAberturaInscricoes);
     $cdDays.textContent  = pad(d.days);
     $cdHours.textContent = pad(d.hours);
@@ -803,25 +816,89 @@ updateIngressoCountdown();
 const ingressoTimer = setInterval(updateIngressoCountdown, 1000);
 
 /*
-   INTERCEPTA O CLIQUE NO BOTÃO DE INGRESSO
-   Fases 1 e 3: bloqueia navegação e exibe toast.
-   Fase 2: deixa o link abrir normalmente.
+   ABRE O MODAL COM AS ETAPAS DO PROCESSO
+   - Fases 1, 3, 4: mostra apenas as informações
+   - Fase 2 (inscrições abertas): mostra informações + botão do Forms
 */
-$ctaBtn.addEventListener('click', function(e) {
-    if (ingressoFaseAtual === 1) {
-        e.preventDefault();
-        showIngressoToast(
-            INGRESSO_CONFIG.toastTituloFase1,
-            INGRESSO_CONFIG.toastSubFase1
-        );
-    } else if (ingressoFaseAtual === 3) {
-        e.preventDefault();
-        showIngressoToast(
-            INGRESSO_CONFIG.toastTituloFase3,
-            INGRESSO_CONFIG.toastSubFase3
-        );
+const etapasModal = document.getElementById('etapasModal');
+const modalBody = document.getElementById('etapasModalBody');
+const modalFooter = document.getElementById('etapasModalFooter');
+const formsLink = 'https://docs.google.com/forms/d/e/1FAIpQLSfbTDmrQTLmwpWn_vNgo0tGHQ27Bfm2fE39ottHrm0671m9Mw/viewform';
+
+function openEtapasModal() {
+    if (etapasModal) {
+        // Atualiza o conteúdo do modal conforme a fase atual
+        updateModalContentByFase();
+        etapasModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
     }
-    /* Fase 2: nenhum preventDefault → link abre normalmente */
+}
+
+function updateModalContentByFase() {
+    // Verifica qual é a fase atual (variável global ingressoFaseAtual)
+    const isFase2 = (ingressoFaseAtual === 2);
+    
+    if (isFase2) {
+        // FASE 2: Mostra botão do Forms no footer
+        modalFooter.innerHTML = `
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <a href="${formsLink}" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="etapas-modal-btn etapas-modal-btn-primary"
+                   id="formsRedirectBtn">
+                    <span>Ir para o formulário</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+                         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <button class="etapas-modal-btn-secondary" id="closeModalFooterBtn">
+                    Entendi, fechar
+                </button>
+            </div>
+        `;
+        // Reatribuir evento do botão fechar
+        document.getElementById('closeModalFooterBtn')?.addEventListener('click', closeEtapasModal);
+    } else {
+        // OUTRAS FASES: Mostra apenas botão de fechar
+        modalFooter.innerHTML = `
+            <button class="etapas-modal-btn" id="closeModalFooterBtn">
+                Entendi, fechar
+            </button>
+        `;
+        document.getElementById('closeModalFooterBtn')?.addEventListener('click', closeEtapasModal);
+    }
+}
+
+function closeEtapasModal() {
+    if (etapasModal) {
+        etapasModal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+}
+
+// Substitui o comportamento do botão "Processo"
+$ctaBtn.addEventListener('click', function(e) {
+    e.preventDefault();  // Impede qualquer navegação
+    openEtapasModal();
+});
+
+// Fechar modal pelo X
+document.getElementById('closeModalBtn')?.addEventListener('click', closeEtapasModal);
+
+// Fechar ao clicar fora do conteúdo
+etapasModal?.addEventListener('click', function(e) {
+    if (e.target === etapasModal) {
+        closeEtapasModal();
+    }
+});
+
+// Fechar com tecla ESC
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && etapasModal?.classList.contains('open')) {
+        closeEtapasModal();
+    }
 });
 
 
