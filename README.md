@@ -94,3 +94,129 @@ A Liga Acadêmica de Engenharia de Software tem como missão integrar teoria e p
 Este projeto possui caráter acadêmico e educacional.
 
 ---
+
+
+classDiagram
+
+%% =========================
+%% Classe Principal
+%% =========================
+class AppLES {
+  - revealObserver
+  - heroImages
+  - membersData
+  - ingressoConfig
+  + init()
+  + initScrollReveal()
+  + initParallax()
+  + initMenu()
+  + initCarousel()
+  + initModals()
+  + initCountdown()
+}
+
+%% =========================
+%% Scroll Reveal
+%% =========================
+class ScrollReveal {
+  - observer
+  - targets
+  + observeElements()
+  + reveal(entry)
+}
+
+%% =========================
+%% Hero Slideshow
+%% =========================
+class HeroSlideshow {
+  - images
+  - currentSlide
+  - slideTimer
+  + goToSlide(index)
+  + startAutoSlide()
+}
+
+%% =========================
+%% Carousel de Projetos
+%% =========================
+class ProjectCarousel {
+  - currentIndex
+  - cardWidth
+  - isDragging
+  + updateCarousel()
+  + next()
+  + prev()
+  + handleTouch()
+}
+
+%% =========================
+%% Member (Entidade)
+%% =========================
+class Member {
+  - name
+  - role
+  - initials
+  - group
+  - bio
+  - links
+}
+
+%% =========================
+%% Member Modal
+%% =========================
+class MemberModal {
+  - memberData
+  + open(id)
+  + close()
+  + renderLinks()
+}
+
+%% =========================
+%% Team Overview Modal
+%% =========================
+class TeamOverviewModal {
+  - groups
+  - filters
+  + open()
+  + close()
+  + renderGrid()
+  + renderFilters()
+  + collectMembers()
+}
+
+%% =========================
+%% Event Modal
+%% =========================
+class EventModal {
+  - eventData
+  + open(element)
+  + close()
+}
+
+%% =========================
+%% Ingresso Controller
+%% =========================
+class IngressoController {
+  - config
+  - faseAtual
+  + updateCountdown()
+  + openModal()
+  + getFase1()
+  + getFase2()
+  + getFase3()
+  + getFase4()
+}
+
+%% =========================
+%% Relacionamentos
+%% =========================
+AppLES --> ScrollReveal
+AppLES --> HeroSlideshow
+AppLES --> ProjectCarousel
+AppLES --> MemberModal
+AppLES --> TeamOverviewModal
+AppLES --> EventModal
+AppLES --> IngressoController
+
+MemberModal --> Member
+TeamOverviewModal --> Member
