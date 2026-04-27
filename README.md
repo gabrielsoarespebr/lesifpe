@@ -98,118 +98,52 @@ Este projeto possui caráter acadêmico e educacional.
 
 classDiagram
 
-%% =========================
-%% Classe Principal
-%% =========================
+```mermaid
+classDiagram
+
 class AppLES {
-  - revealObserver
-  - heroImages
-  - membersData
-  - ingressoConfig
-  + init()
-  + initScrollReveal()
-  + initParallax()
-  + initMenu()
-  + initCarousel()
-  + initModals()
-  + initCountdown()
+  +init()
+  +initScrollReveal()
+  +initCarousel()
+  +initModals()
 }
 
-%% =========================
-%% Scroll Reveal
-%% =========================
 class ScrollReveal {
-  - observer
-  - targets
-  + observeElements()
-  + reveal(entry)
+  +observeElements()
 }
 
-%% =========================
-%% Hero Slideshow
-%% =========================
 class HeroSlideshow {
-  - images
-  - currentSlide
-  - slideTimer
-  + goToSlide(index)
-  + startAutoSlide()
+  +goToSlide()
 }
 
-%% =========================
-%% Carousel de Projetos
-%% =========================
 class ProjectCarousel {
-  - currentIndex
-  - cardWidth
-  - isDragging
-  + updateCarousel()
-  + next()
-  + prev()
-  + handleTouch()
+  +updateCarousel()
 }
 
-%% =========================
-%% Member (Entidade)
-%% =========================
 class Member {
-  - name
-  - role
-  - initials
-  - group
-  - bio
-  - links
+  name
+  role
+  group
 }
 
-%% =========================
-%% Member Modal
-%% =========================
 class MemberModal {
-  - memberData
-  + open(id)
-  + close()
-  + renderLinks()
+  +open()
+  +close()
 }
 
-%% =========================
-%% Team Overview Modal
-%% =========================
 class TeamOverviewModal {
-  - groups
-  - filters
-  + open()
-  + close()
-  + renderGrid()
-  + renderFilters()
-  + collectMembers()
+  +renderGrid()
 }
 
-%% =========================
-%% Event Modal
-%% =========================
 class EventModal {
-  - eventData
-  + open(element)
-  + close()
+  +open()
+  +close()
 }
 
-%% =========================
-%% Ingresso Controller
-%% =========================
 class IngressoController {
-  - config
-  - faseAtual
-  + updateCountdown()
-  + openModal()
-  + getFase1()
-  + getFase2()
-  + getFase3()
-  + getFase4()
+  +updateCountdown()
 }
 
-%% =========================
-%% Relacionamentos
-%% =========================
 AppLES --> ScrollReveal
 AppLES --> HeroSlideshow
 AppLES --> ProjectCarousel
@@ -220,3 +154,56 @@ AppLES --> IngressoController
 
 MemberModal --> Member
 TeamOverviewModal --> Member
+```
+
+UML de Casos de Uso
+
+```mermaid
+flowchart LR
+
+Visitante((Visitante))
+Membro((Membro))
+Admin((Administrador))
+
+subgraph Sistema_LES_IFPE
+
+  UC1[Visualizar pagina inicial]
+  UC2[Ver equipe]
+  UC3[Ver projetos]
+  UC4[Ver eventos]
+  UC5[Abrir modal de membro]
+  UC6[Filtrar membros por grupo]
+  UC7[Visualizar detalhes de evento]
+  UC8[Realizar inscricao]
+  UC9[Acessar formulario externo]
+  UC10[Navegar pelo site]
+  UC11[Interagir com carrossel]
+  UC12[Gerenciar conteudo]
+  UC13[Atualizar membros]
+  UC14[Atualizar eventos]
+  UC15[Atualizar projetos]
+
+end
+
+Visitante --> UC1
+Visitante --> UC2
+Visitante --> UC3
+Visitante --> UC4
+Visitante --> UC5
+Visitante --> UC6
+Visitante --> UC7
+Visitante --> UC8
+Visitante --> UC10
+Visitante --> UC11
+
+UC8 --> UC9
+
+Membro --> UC1
+Membro --> UC2
+Membro --> UC3
+
+Admin --> UC12
+Admin --> UC13
+Admin --> UC14
+Admin --> UC15
+```
