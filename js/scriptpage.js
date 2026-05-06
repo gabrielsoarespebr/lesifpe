@@ -282,6 +282,17 @@ const membersData = {
         links: { github: 'https://github.com/Bruno-0706', linkedin: 'https://www.linkedin.com/in/bruno-luiz-b86792339/' }
     },
 
+    marcos: {
+        name: 'Marcos Aurélio Lopes de Araújo',
+        role: 'Desenvolvedor',
+        initials: 'MA',
+        bio: 'Membro desenvolvedor da LES, focado em crescimento técnico e entrega de valor nos projetos da liga.',
+        links: { 
+            github: 'https://github.com/marcosaureliodevelop',
+            linkedin: 'https://www.linkedin.com/in/marcos-aur%C3%A9lio-4566a4237/',  
+        }
+    },
+
     /* ══ COLABORADORES — adicione aqui ══════════════════════
        Exemplo:
        nomeColaborador: {
