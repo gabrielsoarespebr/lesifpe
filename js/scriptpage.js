@@ -310,7 +310,12 @@ const membersData = {
         bio: 'Membro desenvolvedor da LES, focado em crescimento técnico e entrega de valor nos projetos da liga.',
         links: { github: 'https://github.com/Renansoader', linkedin: 'https://www.linkedin.com/authwall?trk=bf&trkInfo=AQEUrJM-AzfzAAAAAZ3-wThopYEn__ENQuPhR6PUWJBYxwumZF0zSKlJ2MvFfZ9LuVehOw83Dr4VPWF2-U268s5MgeF8rSZCJpF9LxF3RC2STciOzsa2oPfK7elY3T8kjSvWEwI=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Frenanhenry%2F' }
     },
-
+    adriano: {
+        name: 'Adriano Eloy Justino da Silva', role: 'Desenvolvedor',
+        initials: 'AD', group: 'dev',
+        bio: 'Movido por desafios, aprendizado contínuo e pela vontade de transformar ideias em soluções reais através da tecnologia.',
+        links: { github: 'https://github.com/AdrianoABR123', linkedin: 'https://www.linkedin.com/in/adriano-eloy-a703b4309/' }
+    },
  
     /* ══ COLABORADORES — adicione aqui ══════════════════════
        Exemplo:
