@@ -290,7 +290,17 @@ const membersData = {
         links: { 
             github: 'https://github.com/marcosaureliodevelop',
             linkedin: 'https://www.linkedin.com/in/marcos-aur%C3%A9lio-4566a4237/',  
-        }
+        },
+    },
+    matheus: {
+        name: 'Matheus da Silva Melo',
+        role: 'Desenvolvedor',
+        initials: 'MM', group: 'dev',
+        bio: 'Membro desenvolvedor da LES, focado em crescimento técnico, network e entrega de valor nos projetos da liga.',
+        links: { 
+            github: 'https://github.com/matheusbalcky', 
+            linkdin: 'https://www.linkedin.com/in/matheusbalcky'
+            }
     },
 
     /* ══ COLABORADORES — adicione aqui ══════════════════════
