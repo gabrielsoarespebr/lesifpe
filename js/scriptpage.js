@@ -293,6 +293,18 @@ const membersData = {
         }
     },
 
+
+    kayllane: {
+        name: 'Kayllane Maria Dias Vasconcelos',
+        role: 'Desenvolvedor',
+        initials: 'KD',
+        bio: 'Membro desenvolvedor da LES, focado em crescimento técnico e entrega de valor nos projetos da liga.',
+        links: { 
+            github: 'https://github.com/kayvsll',
+            linkedin: 'https://www.linkedin.com/in/kayvsll/',  
+        }
+    },
+
     /* ══ COLABORADORES — adicione aqui ══════════════════════
        Exemplo:
        nomeColaborador: {
