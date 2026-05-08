@@ -302,8 +302,6 @@ const membersData = {
             linkdin: 'https://www.linkedin.com/in/matheusbalcky'
             }
     },
-
-
     kayllane: {
         name: 'Kayllane Maria Dias Vasconcelos',
         role: 'Desenvolvedor',
@@ -313,6 +311,12 @@ const membersData = {
             github: 'https://github.com/kayvsll',
             linkedin: 'https://www.linkedin.com/in/kayvsll/',  
         }
+    },
+    victor: {
+        name: 'Victor Montes da Silva', role: 'Desenvolvedor',
+        initials: 'VM', group: 'dev',
+        bio: 'Membro desenvolvedor da LES, focado em iniciação científica e conhecimento acadêmico voltados a projetos da liga.',
+        links: { github: 'https://github.com/VmDevalt', linkedin: 'https://www.linkedin.com/in/victor-montes-97bbb51a3/' }
     },
 
     /* ══ COLABORADORES — adicione aqui ══════════════════════
