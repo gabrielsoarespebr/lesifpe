@@ -316,7 +316,17 @@ const membersData = {
         name: 'Victor Montes da Silva', role: 'Desenvolvedor',
         initials: 'VM', group: 'dev',
         bio: 'Membro desenvolvedor da LES, focado em iniciação científica e conhecimento acadêmico voltados a projetos da liga.',
-        links: { github: 'https://github.com/VmDevalt', linkedin: 'https://www.linkedin.com/in/victor-montes-97bbb51a3/' }
+        links: { github: 'https://github.com/VmDevalt', linkedin: 'https://www.linkedin.com/in/victor-montes-97bbb51a3/' 
+
+    },
+    sabryna: {
+        name: 'Sabryna Santana da Silva',
+        role: 'Desenvolvedor',
+        initials: 'SS', group: 'dev'
+        bio: 'Membro desenvolvedor da LES, atuando nas áreas de desenvolvimento e comunicação, contribuindo com soluções criativas, crescimento técnico e fortalecimento dos projetos da liga.',
+        links: { 
+            github: 'https://github.com/sabrynasantana',
+            linkedin: 'https://www.linkedin.com/in/sabryna-santana-8150201a1/',  
     },
 
     /* ══ COLABORADORES — adicione aqui ══════════════════════
