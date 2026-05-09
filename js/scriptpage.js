@@ -318,6 +318,15 @@ const membersData = {
         bio: 'Membro desenvolvedor da LES, focado em iniciação científica e conhecimento acadêmico voltados a projetos da liga.',
         links: { github: 'https://github.com/VmDevalt', linkedin: 'https://www.linkedin.com/in/victor-montes-97bbb51a3/' }
     },
+     felipe: {
+        name: 'Luis Felipe da Silva de Oliveira',
+        role: 'Desenvolvedor',
+        initials: 'FO', group: 'dev',
+        bio: 'Membro desenvolvedor da LES, com foco em evolução técnica contínua e na entrega de valor real aos projetos.',
+        links: { 
+            github: 'https://github.com/lFelipe23',
+            linkedin: 'https://www.linkedin.com/in/luis-felipe-ads/',
+        },
 
     /* ══ COLABORADORES — adicione aqui ══════════════════════
        Exemplo:
