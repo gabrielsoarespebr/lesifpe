@@ -328,6 +328,15 @@ const membersData = {
             github: 'https://github.com/sabrynasantana',
             linkedin: 'https://www.linkedin.com/in/sabryna-santana-8150201a1/',  
     },
+     felipe: {
+        name: 'Luis Felipe da Silva de Oliveira',
+        role: 'Desenvolvedor',
+        initials: 'FO', group: 'dev',
+        bio: 'Membro desenvolvedor da LES, com foco em evolução técnica contínua e na entrega de valor real aos projetos.',
+        links: { 
+            github: 'https://github.com/lFelipe23',
+            linkedin: 'https://www.linkedin.com/in/luis-felipe-ads/',
+        },
 
     /* ══ COLABORADORES — adicione aqui ══════════════════════
        Exemplo:
