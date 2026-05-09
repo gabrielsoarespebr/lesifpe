@@ -316,7 +316,33 @@ const membersData = {
         bio: 'Movido por desafios, aprendizado contínuo e pela vontade de transformar ideias em soluções reais através da tecnologia.',
         links: { github: 'https://github.com/AdrianoABR123', linkedin: 'https://www.linkedin.com/in/adriano-eloy-a703b4309/' }
     },
- 
+ victor: {
+        name: 'Victor Montes da Silva', role: 'Desenvolvedor',
+        initials: 'VM', group: 'dev',
+        bio: 'Membro desenvolvedor da LES, focado em iniciação científica e conhecimento acadêmico voltados a projetos da liga.',
+        links: { github: 'https://github.com/VmDevalt', linkedin: 'https://www.linkedin.com/in/victor-montes-97bbb51a3/' }
+    },
+      kayllane: {
+        name: 'Kayllane Maria Dias Vasconcelos',
+        role: 'Desenvolvedor',
+        initials: 'KD',
+        bio: 'Membro desenvolvedor da LES, focado em crescimento técnico e entrega de valor nos projetos da liga.',
+        links: { 
+            github: 'https://github.com/kayvsll',
+            linkedin: 'https://www.linkedin.com/in/kayvsll/',  
+        },
+
+        matheus: {
+        name: 'Matheus da Silva Melo',
+        role: 'Desenvolvedor',
+        initials: 'MM', group: 'dev',
+        bio: 'Membro desenvolvedor da LES, focado em crescimento técnico, network e entrega de valor nos projetos da liga.',
+        links: { 
+            github: 'https://github.com/matheusbalcky', 
+            linkdin: 'https://www.linkedin.com/in/matheusbalcky'
+            }
+    },
+    },
     /* ══ COLABORADORES — adicione aqui ══════════════════════
        Exemplo:
        nomeColaborador: {
