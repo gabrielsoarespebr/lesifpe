@@ -304,6 +304,7 @@ const membersData = {
             links: {  github: 'https://github.com/marcosaureliodevelop', linkedin: 'https://www.linkedin.com/in/marcos-aurélio-4566a4237/',
             }
         },
+
     renan: {
         name: 'Renan Henrico Borges Pinto', role: 'Desenvolvedor',
         initials: 'RH', group: 'dev',
@@ -317,6 +318,8 @@ const membersData = {
         links: { github: 'https://github.com/AdrianoABR123', linkedin: 'https://www.linkedin.com/in/adriano-eloy-a703b4309/' }
     },
  victor: {
+
+       victor: {
         name: 'Victor Montes da Silva', role: 'Desenvolvedor',
         initials: 'VM', group: 'dev',
         bio: 'Membro desenvolvedor da LES, focado em iniciação científica e conhecimento acadêmico voltados a projetos da liga.',
@@ -326,12 +329,18 @@ const membersData = {
         name: 'Kayllane Maria Dias Vasconcelos',
         role: 'Desenvolvedor',
         initials: 'KD',
+
+      kayllane: {
+        name: 'Kayllane Maria Dias Vasconcelos',
+        role: 'Desenvolvedor',
+        initials: 'KA',
         bio: 'Membro desenvolvedor da LES, focado em crescimento técnico e entrega de valor nos projetos da liga.',
         links: { 
             github: 'https://github.com/kayvsll',
             linkedin: 'https://www.linkedin.com/in/kayvsll/',  
         },
 
+},
         matheus: {
         name: 'Matheus da Silva Melo',
         role: 'Desenvolvedor',
@@ -343,6 +352,9 @@ const membersData = {
             }
     },
     },
+    
+
+ 
     /* ══ COLABORADORES — adicione aqui ══════════════════════
        Exemplo:
        nomeColaborador: {
