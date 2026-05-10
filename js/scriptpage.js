@@ -283,60 +283,53 @@ const membersData = {
     },
 
     marcos: {
-        name: 'Marcos Aurélio Lopes de Araújo',
-        role: 'Desenvolvedor',
+        name: 'Marcos Aurélio Lopes de Araújo', role: 'Desenvolvedor',
         initials: 'MA',
         bio: 'Membro desenvolvedor da LES, focado em crescimento técnico e entrega de valor nos projetos da liga.',
-        links: { 
-            github: 'https://github.com/marcosaureliodevelop',
-            linkedin: 'https://www.linkedin.com/in/marcos-aur%C3%A9lio-4566a4237/',  
-        },
+        links: { github: 'https://github.com/marcosaureliodevelop', linkedin: 'https://www.linkedin.com/in/marcos-aur%C3%A9lio-4566a4237/' }
     },
+
     matheus: {
-        name: 'Matheus da Silva Melo',
-        role: 'Desenvolvedor',
+        name: 'Matheus da Silva Melo', role: 'Desenvolvedor',
         initials: 'MM', group: 'dev',
         bio: 'Membro desenvolvedor da LES, focado em crescimento técnico, network e entrega de valor nos projetos da liga.',
-        links: { 
-            github: 'https://github.com/matheusbalcky', 
-            linkdin: 'https://www.linkedin.com/in/matheusbalcky'
-            }
+        links: { github: 'https://github.com/matheusbalcky', linkedin: 'https://www.linkedin.com/in/matheusbalcky' }
     },
+
     kayllane: {
-        name: 'Kayllane Maria Dias Vasconcelos',
-        role: 'Desenvolvedor',
+        name: 'Kayllane Maria Dias Vasconcelos', role: 'Desenvolvedor',
         initials: 'KD',
         bio: 'Membro desenvolvedor da LES, focado em crescimento técnico e entrega de valor nos projetos da liga.',
-        links: { 
-            github: 'https://github.com/kayvsll',
-            linkedin: 'https://www.linkedin.com/in/kayvsll/',  
-        }
+        links: { github: 'https://github.com/kayvsll', linkedin: 'https://www.linkedin.com/in/kayvsll/' }
     },
+
     victor: {
         name: 'Victor Montes da Silva', role: 'Desenvolvedor',
         initials: 'VM', group: 'dev',
         bio: 'Membro desenvolvedor da LES, focado em iniciação científica e conhecimento acadêmico voltados a projetos da liga.',
-        links: { github: 'https://github.com/VmDevalt', linkedin: 'https://www.linkedin.com/in/victor-montes-97bbb51a3/' 
+        links: { github: 'https://github.com/VmDevalt', linkedin: 'https://www.linkedin.com/in/victor-montes-97bbb51a3/' }
+    },
 
-    },
     sabryna: {
-        name: 'Sabryna Santana da Silva',
-        role: 'Desenvolvedor',
-        initials: 'SS', group: 'dev'
+        name: 'Sabryna Santana da Silva', role: 'Desenvolvedor',
+        initials: 'SS', group: 'dev',
         bio: 'Membro desenvolvedor da LES, atuando nas áreas de desenvolvimento e comunicação, contribuindo com soluções criativas, crescimento técnico e fortalecimento dos projetos da liga.',
-        links: { 
-            github: 'https://github.com/sabrynasantana',
-            linkedin: 'https://www.linkedin.com/in/sabryna-santana-8150201a1/',  
+        links: { github: 'https://github.com/sabrynasantana', linkedin: 'https://www.linkedin.com/in/sabryna-santana-8150201a1/' }
     },
-     felipe: {
-        name: 'Luis Felipe da Silva de Oliveira',
-        role: 'Desenvolvedor',
+
+    felipe: {
+        name: 'Luis Felipe da Silva de Oliveira', role: 'Desenvolvedor',
         initials: 'FO', group: 'dev',
         bio: 'Membro desenvolvedor da LES, com foco em evolução técnica contínua e na entrega de valor real aos projetos.',
-        links: { 
-            github: 'https://github.com/lFelipe23',
-            linkedin: 'https://www.linkedin.com/in/luis-felipe-ads/',
-        },
+        links: { github: 'https://github.com/lFelipe23', linkedin: 'https://www.linkedin.com/in/luis-felipe-ads/' }
+    },
+
+    eduarda: {
+        name: 'Eduarda Rocha Fernandes de Sousa', role: 'Desenvolvedor',
+        initials: 'ES', group: 'dev',
+        bio: 'Membra desenvolvedora da LES, com foco em evolução técnica contínua e na entrega de valor real aos projetos.',
+        links: { github: 'https://github.com/EduardaRFSousa', linkedin: 'https://www.linkedin.com/in/eduarda-rocha-full-stack-dev/' }
+    },
 
     /* ══ COLABORADORES — adicione aqui ══════════════════════
        Exemplo:
