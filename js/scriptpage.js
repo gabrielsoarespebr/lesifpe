@@ -384,9 +384,10 @@ const membersData = {
     francisco: {
         name: 'Francisco de Assis O. dos S. Correia', role: 'ex_integrante',
         initials: 'FA', group: 'ex_integrante',
-        bio: 'Primeiro Diretor de Administração da Liga de Engenharia de Software (LES) e membro fundador. Estruturou a base administrativa, organizou a documentação institucional e estabeleceu os processos internos da liga..',
+        bio: 'Primeiro Diretor de Administração da Liga de Engenharia de Software (LES) e membro fundador Estruturou a base administrativa, organizou a documentação institucional e estabeleceu os processos internos da liga..',
         links: { github: 'https://github.com/francisco-tal', linkedin: 'https://www.linkedin.com/in/francisco-de-assis-53aaab3b2/' }
     },
+    
     cristiano: {
         name: 'Cristiano Veras de Souza', role: 'ex_integrante',
         initials: 'CV', group: 'ex_integrante',
