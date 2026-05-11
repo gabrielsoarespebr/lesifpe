@@ -347,6 +347,40 @@ const membersData = {
         }
     },
 
+    victor: {
+        name: 'Victor Montes da Silva', role: 'Desenvolvedor',
+        initials: 'VM', group: 'dev',
+        bio: 'Membro desenvolvedor da LES, focado em iniciação científica e conhecimento acadêmico voltados a projetos da liga.',
+        links: { github: 'https://github.com/VmDevalt', linkedin: 'https://www.linkedin.com/in/victor-montes-97bbb51a3/' }
+    },
+
+    felipe: {
+        name: 'Luis Felipe da Silva de Oliveira',
+        role: 'Desenvolvedor',
+        initials: 'FO', group: 'dev',
+        bio: 'Membro desenvolvedor da LES, com foco em evolução técnica contínua e na entrega de valor real aos projetos.',
+        links: {
+            github: 'https://github.com/lFelipe23',
+            linkedin: 'https://www.linkedin.com/in/luis-felipe-ads/',
+        }
+    },
+
+    sabryna: {
+        name: 'Sabryna Santana da Silva',
+        role: 'Desenvolvedor',
+        initials: 'SS', group: 'dev',
+        bio: 'Membro desenvolvedor da LES, atuando nas áreas de desenvolvimento e comunicação, contribuindo com soluções criativas, crescimento técnico e fortalecimento dos projetos da liga.',
+        links: {
+            github: 'https://github.com/sabrynasantana',
+            linkedin: 'https://www.linkedin.com/in/sabryna-santana-8150201a1/',
+        }
+    },
+    eduarda: {
+        name: 'Eduarda Rocha Fernandes de Sousa', role: 'Desenvolvedor',
+        initials: 'ES', group: 'dev',
+        bio: 'Membra desenvolvedora da LES, com foco em evolução técnica contínua e na entrega de valor real aos projetos.',
+        links: { github: 'https://github.com/EduardaRFSousa', linkedin: 'https://www.linkedin.com/in/eduarda-rocha-full-stack-dev/' }
+    },
 
 
     /* ══ COLABORADORES — adicione aqui ══════════════════════
@@ -387,6 +421,7 @@ const membersData = {
         bio: 'Primeiro Diretor de Administração da Liga de Engenharia de Software (LES) e membro fundador',
         links: { github: 'https://github.com/francisco-tal', linkedin: 'https://www.linkedin.com/in/francisco-de-assis-53aaab3b2/' }
     },
+
     
     cristiano: {
         name: 'Cristiano Veras de Souza', role: 'ex_integrante',
