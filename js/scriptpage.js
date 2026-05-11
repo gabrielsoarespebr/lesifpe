@@ -212,36 +212,36 @@ const membersData = {
 
     /* ── Diretoria ── */
     ilian: {
-        name: 'Ilian Solano Bezerra da Silva', role: 'Presidente',
+        name: 'Ilian Solano Bezerra da Silva', role: 'Presidente e fundador',
         initials: 'IS', group: 'diretoria',
         bio: 'Presidente da LES-IFPE. Lidera a equipe com foco em inovação, gestão de pessoas e articulação institucional da liga.',
         links: { github: 'https://github.com/ilian-oss', linkedin: 'https://www.linkedin.com/in/ilian-solano/' }
     },
 
     yuri: {
-        name: 'Yuri Santos de Oliveira', role: 'Vice-presidente',
+        name: 'Yuri Santos de Oliveira', role: 'Vice-presidente e fundador',
         initials: 'YO', group: 'diretoria',
         bio: 'Vice-presidente da LES, responsável por apoiar a presidência na coordenação estratégica e operacional da liga.',
         links: { github: 'https://github.com/Yuriportf', linkedin: 'https://www.linkedin.com/in/yuri-oliveira-aqui/', instagram: 'https://www.instagram.com/_yurioliv_/', email: 'mailto:yuriprodeveloper@gmail.com' }
     },
 
     christoph: {
-        name: 'Christoph Soares Diehl', role: 'Diretor de Projetos',
-        initials: 'CD', group: 'diretoria',
+        name: 'Christoph Soares Diehl', role: 'Desenvolvedor fundador',
+        initials: 'CD', group: 'dev',
         bio: 'Diretor de Projetos da LES. Gerencia o portfólio de projetos, garantindo alinhamento técnico e entrega de valor para a comunidade.',
         links: { github: 'https://github.com/christoph-sd', linkedin: 'https://linkedin.com/in/' }
     },
 
     alane: {
-        name: 'Maria Alane Oliveira de Arruda Camara', role: 'Diretora de Desenvolvimento',
+        name: 'Maria Alane Oliveira de Arruda Camara', role: 'Diretora de Desenvolvimento e fundadora',
         initials: 'MA', group: 'diretoria',
         bio: 'Diretora de Desenvolvimento da LES. Coordena as práticas técnicas, revisão de código e evolução das competências dos membros.',
         links: { github: 'https://github.com/AlaneOliveira', linkedin: 'https://linkedin.com/in/' }
     },
 
     francisco: {
-        name: 'Francisco de Assis O. dos S. Correia', role: 'Diretor de Administração',
-        initials: 'FA', group: 'diretoria',
+        name: 'Francisco de Assis O. dos S. Correia', role: 'Desenvolvedor fundador',
+        initials: 'FA', group: 'dev',
         bio: 'Diretor de Administração da LES. Responsável pela gestão administrativa, documentação e processos internos da liga.',
         links: { github: 'https://github.com/francisco-tal', linkedin: 'https://www.linkedin.com/in/francisco-de-assis-53aaab3b2/' }
     },
@@ -255,8 +255,8 @@ const membersData = {
     },
 
     cristiano: {
-        name: 'Cristiano Veras de Souza', role: 'Desenvolvedor',
-        initials: 'CV', group: 'dev',
+        name: 'Cristiano Veras de Souza', role: 'ex_integrante',
+        initials: 'CV', group: 'ex_integrante',
         bio: 'Membro desenvolvedor da LES, contribuindo com suas habilidades técnicas para os projetos da liga.',
         links: { github: 'https://github.com/', linkedin: 'https://www.linkedin.com/in/cristianoveras/' }
     },
@@ -343,6 +343,17 @@ const membersData = {
         links: { 
             github: 'https://github.com/matheusbalcky', 
             linkdin: 'https://www.linkedin.com/in/matheusbalcky'
+            }
+    },
+    
+     ryan : {
+        name: 'Ryan Raiconny Nobre Nascimento ',
+        role: 'Desenvolvedor',
+        initials: 'RY', group: 'dev',
+        bio: 'Membro desenvolvedor da LES, focado em crescimento técnico, network e entrega de valor nos projetos da liga.',
+        links: { 
+            github: 'hhttps://github.com/ryan-star232', 
+            linkdin: 'https://www.linkedin.com/in/ryan-nobre-56aa943a2/'
             }
     },
     
@@ -621,7 +632,7 @@ teamOverviewModal.addEventListener('click', e => {
 
 /* Atualiza o contador de membros exibido na seção */
 (function updateMemberCount() {
-    const total = Object.keys(membersData).length;
+    const total = Object.values(membersData).filter(m => m.group !== 'ex_integrante').length;
     const el = document.getElementById('equipe-member-count');
     if (el) el.textContent = total;
 })();
